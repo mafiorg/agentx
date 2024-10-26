@@ -53,6 +53,6 @@ RUN chown -R app:app $APP_HOME
 # change to the app user
 USER app
 
-EXPOSE 80
+EXPOSE 443
 
-CMD python manage.py migrate && python manage.py runserver 80
+CMD python manage.py migrate && python manage.py runserver 443
