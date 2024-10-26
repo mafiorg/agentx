@@ -5,7 +5,9 @@ class PostDetail(models.Model):
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now_add=True)
     divar_post_token = models.TextField(null=False, blank=False, unique=True)
+    divar_post_return_url = models.TextField(null=False, blank=False, unique=True)
     divar_post_data = models.JSONField(null=False, blank=False, default=dict)
+    divar_access_token = models.JSONField(null=True, blank=True, default=dict)
     knowledge = models.TextField(null=True, blank=True)
 
 

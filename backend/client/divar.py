@@ -3,9 +3,9 @@ import uuid
 from django.conf import settings
 
 
-def create_oauth_init_url(post_token):
-    scope = 'CHAT_POST_CONVERSATIONS_READ'  #USER_PHONE
-    return f'https://api.divar.ir/oauth2/auth?response_type=code&client_id={settings.DIVAR_OAUTH_CLIENT_ID}&redirect_uri={settings.DIVAR_OAUTH_REDIRECT_URL}&scope={scope}&state={str(uuid.uuid4())}'
+def create_oauth_init_url(post_token, scope):
+    #scope = 'CHAT_POST_CONVERSATIONS_READ'  #USER_PHONE
+    return f'https://api.divar.ir/oauth2/auth?response_type=code&client_id={settings.DIVAR_OAUTH_CLIENT_ID}&redirect_uri={settings.DIVAR_OAUTH_REDIRECT_URL}&scope={scope}&state={post_token}_{str(uuid.uuid4())}'
 
 
 # TODO: refresh token?
@@ -32,6 +32,21 @@ def get_access_token(code):
         "token_type": "bearer"
     }
     """
+    if response.status_code == 200:
+        return response.json()
+    else:
+        response.raise_for_status()
+
+
+# https://github.com/divar-ir/kenar-docs/blob/master/finder/get_post.md
+def get_post(post_token):
+    url = f"https://api.divar.ir/v1/open-platform/finder/post/{post_token}"
+    headers = {
+        "Content-Type": "application/json",
+        "x-api-key": settings.DIVAR_API_TOKEN,
+    }
+    response = requests.get(url, headers=headers)
+    
     if response.status_code == 200:
         return response.json()
     else:

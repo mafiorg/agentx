@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = ['https://1fc3-149-102-245-74.ngrok-free.app']
 
 # Application definition
 

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent-X AI Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+        }
+        .header {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1a73e8;
+            margin-bottom: 1rem;
+        }
+        .description {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+        .text-area {
+            width: 100%;
+            height: 150px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem;
+            resize: none;
+            font-size: 1rem;
+            color: #333;
+        }
+        .button-container {
+            margin-top: 2rem;
+        }
+        .action-button {
+            background-color: #1a73e8;
+            color: white;
+            font-size: 1rem;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .action-button:hover {
+            background-color: #155ab7;
+        }
+        .action-button:hover {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Agent-X AI Assistant for Divar</div>
+        <div class="description">
+            Agent-X is a smart AI assistant designed to support sales by answering questions and engaging in post chats for Divar posts. It ensures timely and intelligent responses to customer inquiries, making the sales process smoother and more efficient.
+        </div>
+        
+        <form method="POST" action="{% url 'app-start' %}?{{ request.GET.urlencode }}">
+            {% csrf_token %}
+            <textarea name="knowledge" class="text-area" placeholder="Enter details about the post and any prompts to help the AI respond effectively..."></textarea>
+            <div class="button-container">
+                <button type="submit" class="action-button">Enable Agent-X & Grant Access</button>
+                <button type="submit" class="cancel-button">Cancel</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
