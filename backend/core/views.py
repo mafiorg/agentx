@@ -73,3 +73,17 @@ authorization: {{ identification_key }}
     print(request.body)  #{"callback_url":"https://open-platform-redirect.divar.ir/completion","post_token":"post-token","user_id":"demand_id","peer_id":"supplier_id","supplier":{"id":"supplier_id"},"demand":{"id":"demand_id"}}
     
     return JsonResponse("OK", safe=False)
+
+
+@api_view(["GET"])
+def oauth_callback(request):
+
+    if request.GET.get("error"):
+        print(request.GET.get("error"))
+        print(request.GET.get("error_description"))
+
+    # scope = request.GET.get("scope")
+    # state = request.GET.get("state")
+    code = request.GET.get("code")
+
+    return JsonResponse("OK", safe=False)
