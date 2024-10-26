@@ -19,7 +19,7 @@ RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/app/wheels -r requir
 
 
 
-FROM python:3.11.4-slim-buster
+FROM python:3.10-slim-buster
 
 RUN mkdir -p /home/app
 
@@ -54,6 +54,6 @@ RUN chown -R app:app $APP_HOME
 # change to the app user
 USER app
 
-EXPOSE 8000
+EXPOSE 80
 
-CMD python manage.py migrate && python manage.py runserver
+CMD python manage.py migrate && python manage.py runserver 80
