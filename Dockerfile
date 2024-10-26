@@ -19,7 +19,7 @@ RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/app/wheels -r requir
 
 
 
-FROM python:3.10-slim-buster
+FROM python:3.10
 
 RUN mkdir -p /home/app
 
