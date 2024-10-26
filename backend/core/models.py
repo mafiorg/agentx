@@ -16,5 +16,4 @@ class Conversation(models.Model):
     update_at = models.DateTimeField(auto_now_add=True)
     post = models.ForeignKey(PostDetail, on_delete=models.PROTECT, null=False, blank=False)
     user_id = models.TextField(null=False, blank=False)
-    supplier_id = models.TextField(null=False, blank=False)
     messages = models.TextField(null=False, blank=False, default=list)

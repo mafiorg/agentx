@@ -134,3 +134,8 @@ DIVAR_OAUTH_CLIENT_SECRET = '6d861aefd0932e6fa8956ca7d565294ac0d315ac01417a3550c
 DIVAR_OAUTH_CLIENT_ID = 'well-dog-myth'
 DIVAR_OAUTH_REDIRECT_URL = APP_DOMAIN + '/auth/divar/callback'
 DIVAR_ON_MESSAGE_HOOK_URL = APP_DOMAIN + '/hook/on-message'
+
+
+# Metis ai: https://docs.metisai.ir/api/wrapper
+METISAI_API_KEY = 'tpsg-uRt7LfbfORhqtlJAY6EMUQ0610DqCK2'
+METISAI_WRAPPER_OPENAI_BASEURL = 'https://api.metisai.ir/openai/v1'

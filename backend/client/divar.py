@@ -73,3 +73,6 @@ def setup_post_on_message_hook(post_token, oauth_access_token):
         return response.json()
     else:
         response.raise_for_status()
+
+
+# TODO: send message
