@@ -15,7 +15,7 @@ COPY . .
 
 # RUN flake8 .
 
-RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/app/wheels -r requirements.txt
+# RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/app/wheels -r requirements.txt
 
 
 
@@ -36,11 +36,10 @@ WORKDIR $APP_HOME
 # install dependencies
 RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev
 
-COPY --from=builder /usr/src/app/wheels /wheels
+# COPY --from=builder /usr/src/app/wheels /wheels
 COPY --from=builder /usr/src/app/requirements.txt .
 RUN pip install --upgrade pip
-RUN pip install --no-cache /wheels/*
-RUN pip install gunicorn==21.2.0
+RUN pip install --no-cache-dir -r requirements.txt
 
 # copy project
 COPY . $APP_HOME
