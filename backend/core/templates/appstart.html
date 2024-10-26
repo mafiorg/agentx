@@ -1,85 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agent-X AI Assistant</title>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>دستیار هوشمند Agent-X</title>
+    <link
+      href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <style>
+      body {
+        font-family: "Vazir", Arial, sans-serif;
+        background-color: #f3f4f6;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 2rem;
+        direction: rtl;
+      }
+      .container {
+        max-width: 600px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        text-align: center;
+        width: 90%;
+      }
+      .header {
+        background-color: #1a73e813;
+        width: fit-content;
+        margin: 0 auto;
+        padding: 2px 20px 0 20px;
+        border-radius: 6px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #1a73e8;
+        margin-bottom: 1rem;
+      }
+      .header3 {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #1a73e8;
+        margin-bottom: 1rem;
+      }
+      .description {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 1.5rem;
+        text-align: right;
+      }
+      .form {
+        width: 100%;
+      }
+      .text-area {
+        width: 90%;
+        height: 180px;
+        border: 1px solid #ddd;
+
+        border-radius: 5px;
+        padding: 1rem;
+        resize: none;
+        font-size: 1rem;
+        color: #606060;
+        font-family: "Vazir", Arial, sans-serif;
+      }
+      .text-area:focus-within {
+        outline: 2px solid #1a73e8 !important;
+      }
+      .button-container {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: space-between;
+      }
+      .action-button,
+      .cancel-button {
+        background-color: #1a73e8;
+        color: white;
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        flex: 1;
+        margin: 0 0.5rem;
+        font-family: "Vazir", Arial, sans-serif;
+      }
+      .action-button:hover {
+        background-color: #155ab7;
+      }
+      .cancel-button {
+        color: #f44336;
+        background-color: transparent;
+        border: 2px solid #f44336;
+        font-family: "Vazir", Arial, sans-serif;
+      }
+      .cancel-button:hover {
+        color: #d32f2f;
+        background-color: #d32f2f0f;
+        border: 2px solid #d32f2f;
+      }
+      @media (max-width: 600px) {
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f3f4f6;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0;
-            padding: 2rem;
+          padding: 1rem;
         }
         .container {
-            max-width: 600px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-            text-align: center;
-        }
-        .header {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #1a73e8;
-            margin-bottom: 1rem;
-        }
-        .description {
-            font-size: 1rem;
-            color: #555;
-            margin-bottom: 1.5rem;
+          padding: 1.5rem;
         }
         .text-area {
-            width: 100%;
-            height: 150px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 1rem;
-            resize: none;
-            font-size: 1rem;
-            color: #333;
+          height: 120px;
         }
         .button-container {
-            margin-top: 2rem;
+          flex-direction: column;
         }
-        .action-button {
-            background-color: #1a73e8;
-            color: white;
-            font-size: 1rem;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+        .action-button,
+        .cancel-button {
+          margin: 0.5rem 0;
         }
-        .action-button:hover {
-            background-color: #155ab7;
-        }
-        .action-button:hover {
-            background-color: gray;
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="header">Agent-X AI Assistant for Divar</div>
-        <div class="description">
-            Agent-X is a smart AI assistant designed to support sales by answering questions and engaging in post chats for Divar posts. It ensures timely and intelligent responses to customer inquiries, making the sales process smoother and more efficient.
+      <div class="header">Agent X</div>
+      <h3 class="header3">افزونه مذاکره هوشمند برای فروشندگان دیوار</h3>
+      <div class="description">
+        Agent-X یک دستیار هوشمند چت و مذاکره است که به طور خودکار با مشتری‌ها
+        گفتگو می‌کند و بر اساس اطلاعات آگهی و دستورالعمل‌های فروشنده، پاسخ‌های
+        هوشمند ارائه می‌دهد. <br />
+        در صورت مثبت بودن روند مذاکره، به فروشنده اطلاع می‌دهد تا فرآیند فروش
+        ساده‌تر و سریع‌تر انجام شود.
+      </div>
+
+      <form
+        class="form"
+        method="POST"
+        action="{% url 'app-start' %}?{{ request.GET.urlencode }}"
+      >
+        <!-- {% csrf_token %} -->
+        <textarea
+          name="knowledge"
+          class="text-area"
+          placeholder="اطلاعات مربوط به پست و هر گونه دستورالعمل برای پاسخ‌گویی موثرتر را وارد کنید..."
+        ></textarea>
+        <div class="button-container">
+          <button type="submit" class="action-button">فعال‌سازی افزونه</button>
+          <button type="button" class="cancel-button">لغو</button>
         </div>
-        
-        <form method="POST" action="{% url 'app-start' %}?{{ request.GET.urlencode }}">
-            {% csrf_token %}
-            <textarea name="knowledge" class="text-area" placeholder="Enter details about the post and any prompts to help the AI respond effectively..."></textarea>
-            <div class="button-container">
-                <button type="submit" class="action-button">Enable Agent-X & Grant Access</button>
-                <button type="submit" class="cancel-button">Cancel</button>
-            </div>
-        </form>
+      </form>
     </div>
-</body>
+  </body>
 </html>
